@@ -73,7 +73,7 @@ button:active {
   transform: translateY(0.3rem);
   box-shadow: none;
 }
-#twitter:hover {
+#twitter-button:hover {
   color: #1da1f2;
 }
 #twitter-icon {
