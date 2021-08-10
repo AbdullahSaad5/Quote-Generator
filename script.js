@@ -9,14 +9,13 @@ newQuote.addEventListener("click", getQuotes);
 twitterButton.addEventListener("click", tweet);
 async function getQuotes() {
   loading();
-  const apiURL = "https://goquotes-api.herokuapp.com/api/v1/random?count=1";
+  // const apiURL = "https://goquotes-api.herokuapp.com/api/v1/random?count=1";
   try {
-    const response = await fetch(apiURL);
-    const queryObject = await response.json();
-    const quote = queryObject.quotes[0];
-    quoteText.innerHTML = quote.text;
+    const response = await fetch("https://api.quotable.io/random");
+    const quote = await response.json();
+    quoteText.innerHTML = quote.content;
     authorName.innerHTML = quote.author;
-    if (quote.text.length > 120) {
+    if (quote.content.length > 120) {
       quoteText.classList.add("smaller-quote-text");
     } else {
       quoteText.classList.remove("smaller-quote-text");
